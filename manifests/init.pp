@@ -17,6 +17,7 @@ class dovecot (
   # 10-auth.conf
   $disable_plaintext_auth     = undef,
   $auth_username_chars        = undef,
+  $auth_username_format       = undef,
   $auth_mechanisms            = 'plain',
   $auth_include               = [ 'system' ],
   # 10-logging.conf
@@ -43,6 +44,8 @@ class dovecot (
   $postmaster_address         = undef,
   $hostname                   = undef,
   $lda_mail_plugins           = undef,
+  # 20-imap.conf
+  $mail_max_userip_connections     = 10,
   # 90-sieve.conf
   $sieve                      = '~/.dovecot.sieve',
   $sieve_dir                  = '~/sieve',
@@ -94,6 +97,9 @@ class dovecot (
   }
   file { '/etc/dovecot/conf.d/15-lda.conf':
     content => template('dovecot/conf.d/15-lda.conf.erb'),
+  }
+  file { '/etc/dovecot/conf.d/20-imap.conf':
+    content => template('dovecot/conf.d/20-imap.conf.erb'),
   }
   file { '/etc/dovecot/conf.d/90-sieve.conf':
     content => template('dovecot/conf.d/90-sieve.conf.erb'),
