@@ -52,9 +52,17 @@ service pop3-login {
 }
 
 service lmtp {
+<% if @lmtp_unix_listener && @lmtp_postfix_user -%>
+  unix_listener /var/spool/postfix/private/dovecot-lmtp {
+  mode = 0600
+  user = <%= @lmtp_postfix_user %>
+  group = <%= @lmtp_postfix_user %>
+  }
+<% else -%>
   unix_listener lmtp {
     #mode = 0666
   }
+<% end -%>
 
   # Create inet listener only if you can't use the above UNIX socket
   #inet_listener lmtp {
