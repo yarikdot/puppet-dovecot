@@ -9,6 +9,6 @@ describe 'dovecot::params', :type => :class do
       }
     end
 
-    it { should contain_dovecot__params }
+    it { should contain_class('dovecot::params') }
   end
 end

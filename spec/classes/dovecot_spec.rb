@@ -16,7 +16,7 @@ describe 'dovecot', :type => :class do
 
     it { should contain_class('dovecot::params') }
 
-    it { should contain_dovecot }
+    it { should contain_class('dovecot') }
 
     it {
       should contain_package('dovecot').with(
@@ -64,7 +64,7 @@ describe 'dovecot', :type => :class do
 
     it { should contain_class('dovecot::params') }
 
-    it { should contain_dovecot }
+    it { should contain_class('dovecot') }
 
     it {
       should contain_package('dovecot-core').with(
