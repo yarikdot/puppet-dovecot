@@ -44,6 +44,7 @@ class dovecot (
   $postmaster_address         = undef,
   $hostname                   = undef,
   $lda_mail_plugins           = undef,
+  $recipient_delimiter        = undef,
   # 20-imap.conf
   $mail_max_userip_connections     = 10,
   # 90-sieve.conf
