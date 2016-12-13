@@ -49,6 +49,8 @@ class dovecot (
   $recipient_delimiter        = undef,
   # 20-imap.conf
   $mail_max_userip_connections     = 10,
+  # 20-lmtp.conf
+  $lmtp_mail_plugins          = undef,
   # 90-sieve.conf
   $sieve                      = '~/.dovecot.sieve',
   $sieve_dir                  = '~/sieve',
@@ -103,6 +105,9 @@ class dovecot (
   }
   file { '/etc/dovecot/conf.d/20-imap.conf':
     content => template('dovecot/conf.d/20-imap.conf.erb'),
+  }
+  file { '/etc/dovecot/conf.d/20-lmtp.conf':
+    content => template('dovecot/conf.d/20-lmtp.conf.erb'),
   }
   file { '/etc/dovecot/conf.d/90-sieve.conf':
     content => template('dovecot/conf.d/90-sieve.conf.erb'),
