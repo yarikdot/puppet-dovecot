@@ -347,3 +347,6 @@ mbox_write_locks = fcntl
 # variables: %{md4}, %{md5}, %{sha1}, %{sha256}, %{sha512}, %{size}.
 # Variables can be truncated, e.g. %{sha256:80} returns only first 80 bits
 #mail_attachment_hash = %{sha1}
+namespace inbox {
+  inbox = yes
+}
