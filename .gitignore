@@ -1,5 +1,20 @@
-.*.sw?
+.project
+*~
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
 pkg
-spec/fixtures
-.rspec_system
-.vagrant
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+Gemfile.lock
