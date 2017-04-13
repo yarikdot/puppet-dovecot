@@ -11,8 +11,7 @@ class dovecot::managesieved {
 
   package { $package_name :
       ensure  => installed,
-      before  => Exec['dovecot'],
-      require => Package['dovecot'],
+      require => Exec['dovecot'],
       alias   => 'dovecot-managesieved',
   }
 
@@ -21,7 +20,8 @@ class dovecot::managesieved {
     changes     => [
       "set service[1] 'managesieve'",
       "set service[2] 'managesieve-login'",
-      ],
+    ],
+    require     => Package['dovecot-managesieved']
   }
 
 }
